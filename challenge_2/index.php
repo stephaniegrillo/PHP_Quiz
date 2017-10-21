@@ -37,11 +37,18 @@ foreach($inputArray as $singleData){
   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>
+	<style media="screen">
+		li {
+			list-style-type: none;
+			max-height: 35px; 
+		}
+	</style>
     <script>
       $(document).ready(function(){ // start function
-
-				$("li").css("list-style-type", "none");
-
+				// $("li").css("list-style-type", "none");
+				$( function() {
+					$( "#main-box" ).menu();
+				});
 			}); // end function
     </script>
   </head>
@@ -53,28 +60,22 @@ $dataJson =  <<<EOT
 EOT;
 $badgeArray = json_decode($dataJson, true);
 ?>
-	<div id="main-box">
-		<div id="left-box">
-			<ul>
-					<?php foreach(array_values($badgeArray) as $i => $item){
-							echo '<li id="left-game-' . $i . '">' . $item['game'] . '</li>' . "\n";
-						};
-					?>
-	    </ul>
-		</div>
-		<div id="right-box">
+	<ul id="main-box">
 			<?php
 				foreach(array_values($badgeArray) as $i => $value){
-					echo '<div id="game-' . $i . '">' . "\n";
+					echo '<li id="game-' . $i . '">' . "\n";
 					echo '<h2>' . $value['game'] . '</h2>' . "\n";
+
 					echo '<ul>' . "\n";
 					foreach($value['badges'] as $badge){
-						echo '<li>' . $badge . '</li>' . "\n";
+					echo '<li>' . $badge . '</li>' . "\n";
 					}
 					echo '</ul>' . "\n";
-					echo '</div>' . "\n";
+					echo '</li>' . "\n";
+					// echo '</div>' . "\n";
 				}
 			?>
+			</ul>
 		</div>
 	</div>
 </body>

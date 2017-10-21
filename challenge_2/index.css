@@ -1,0 +1,24 @@
+body {
+
+}
+
+.ui-menu { width: 150px; }
+
+/*#left-box {
+    border: 1px solid black;
+    height: 200px;
+    width: 49%;
+    float: left;
+    background-color: #f6f6f6;
+}
+
+#right-box {
+  width: 49%;
+  float: right;
+
+}*/
+
+#main-box{
+  outline: 1px solid black;
+  height: 200px;
+}

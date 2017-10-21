@@ -12,3 +12,16 @@ unset($array[$i]);
 }
 
 ?>
+
+
+
+<div id="left-box">
+  <ul>
+      <?php foreach(array_values($badgeArray) as $i => $item){
+          echo "<li id=\"left-game-{$i}\">" . $item['game'] . "</li>";
+        };
+      ?>
+  </ul>
+</div>
+<div id="right-box">
+  <?php
